@@ -35,7 +35,7 @@ const FormikForm = () => {
           onBlur={formik.handleBlur}
         />
         {formik.touched.username && formik.errors.username ? (
-          <div>{formik.errors.username}</div>
+          <div style={{ color: "red" }}>{formik.errors.username}</div>
         ) : null}
       </div>
       <div>
@@ -48,7 +48,7 @@ const FormikForm = () => {
           onBlur={formik.handleBlur}
         />
         {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email}</div>
+          <div style={{ color: "red" }}>{formik.errors.email}</div>
         ) : null}
       </div>
       <div>
@@ -61,7 +61,7 @@ const FormikForm = () => {
           onBlur={formik.handleBlur}
         />
         {formik.touched.password && formik.errors.password ? (
-          <div>{formik.errors.password}</div>
+          <div style={{ color: "red" }}>{formik.errors.password}</div>
         ) : null}
       </div>
       <button type="submit">Register</button>
