@@ -33,12 +33,14 @@ const TodoList = () => {
   return (
     <div>
       <h1>Todo List</h1>
+      <form onSubmit={handleSubmit}>
         <input 
           type="text" 
           value={inputValue} 
           onChange={(e) => setInputValue(e.target.value)} 
         />
-        <button onClick={(e) => { handleSubmit(e) }}>Add Todo</button>
+        <button type="submit">Add Todo</button>
+      </form>
       <ul>
         {todos.map(todo => (
           <li 
@@ -47,10 +49,14 @@ const TodoList = () => {
             style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
           >
             {todo.text}
-            <button onClick={(e) => {
-              e.stopPropagation();
-              deleteTodo(todo.id);
-            }}>Delete</button>
+            <button 
+              onClick={(e) => {
+                e.stopPropagation();
+                deleteTodo(todo.id);
+              }}
+            >
+              Delete
+            </button>
           </li>
         ))}
       </ul>
