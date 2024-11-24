@@ -10,14 +10,18 @@ describe('TodoList Component', () => {
     expect(screen.getByText('Learn React')).toBeInTheDocument();
     expect(screen.getByText('Learn Jest')).toBeInTheDocument();
   });
+});
 
+describe('TodoList Component', () => {
   test('adds a new todo', () => {
     render(<TodoList />);
     fireEvent.change(screen.getByRole('textbox'), { target: { value: 'New Todo' } });
     fireEvent.click(screen.getByText('Add Todo'));
     expect(screen.getByText('New Todo')).toBeInTheDocument();
   });
+});
 
+describe('TodoList Component', () => {
   test('toggles a todo item', () => {
     render(<TodoList />);
     const todoItem = screen.getByText('Learn React');
@@ -26,7 +30,9 @@ describe('TodoList Component', () => {
     fireEvent.click(todoItem);
     expect(todoItem).toHaveStyle('text-decoration: none');
   });
+});
 
+describe('TodoList Component', () => {
   test('deletes a todo item', () => {
     render(<TodoList />);
     const deleteButton = screen.getAllByText('Delete')[0];
