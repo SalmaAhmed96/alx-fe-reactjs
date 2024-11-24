@@ -4,25 +4,21 @@ import '@testing-library/jest-dom'
 import TodoList from '../components/TodoList';
 
 describe('TodoList Component', () => {
-  test('renders correctly with initial todos', () => {
+  test('Write Initial Render Test', () => {
     render(<TodoList />);
     expect(screen.getByText('Todo List')).toBeInTheDocument();
     expect(screen.getByText('Learn React')).toBeInTheDocument();
     expect(screen.getByText('Learn Jest')).toBeInTheDocument();
   });
-});
 
-describe('TodoList Component', () => {
-  test('adds a new todo', () => {
+  test('Test Adding Todos', () => {
     render(<TodoList />);
     fireEvent.change(screen.getByRole('textbox'), { target: { value: 'New Todo' } });
     fireEvent.click(screen.getByText('Add Todo'));
     expect(screen.getByText('New Todo')).toBeInTheDocument();
   });
-});
 
-describe('TodoList Component', () => {
-  test('toggles a todo item', () => {
+  test('Test Toggling Todos', () => {
     render(<TodoList />);
     const todoItem = screen.getByText('Learn React');
     fireEvent.click(todoItem);
@@ -30,10 +26,8 @@ describe('TodoList Component', () => {
     fireEvent.click(todoItem);
     expect(todoItem).toHaveStyle('text-decoration: none');
   });
-});
 
-describe('TodoList Component', () => {
-  test('deletes a todo item', () => {
+  test('Test Deleting Todos', () => {
     render(<TodoList />);
     const deleteButton = screen.getAllByText('Delete')[0];
     fireEvent.click(deleteButton);
