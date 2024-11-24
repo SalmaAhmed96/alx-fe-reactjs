@@ -6,8 +6,6 @@ import BlogPost from './components/BlogPost';
 import NotFound from './components/NotFound';
 import ProtectedRoute from './components/ProtectedRoute';
 
-const isAuthenticated = false;
-
 function App() {
   return (
     <Router>
@@ -16,7 +14,7 @@ function App() {
         <Route
           path="/profile/*"
           element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
+            <ProtectedRoute>
               <Profile />
             </ProtectedRoute>
           }
