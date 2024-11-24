@@ -11,7 +11,12 @@ const fetchPosts = async () => {
 
 const PostsComponent = () => {
   const queryClient = useQueryClient();
-  const { data, error, isLoading, isError } = useQuery('posts', fetchPosts);
+  const { data, error, isLoading, isError } = useQuery('posts', fetchPosts, {
+    cacheTime: 1000 * 60 * 10, // Cache data for 10 minutes
+    staleTime: 1000 * 60 * 5, // Data is fresh for 5 minutes
+    refetchOnWindowFocus: true, // Refetch data when window is focused
+    keepPreviousData: true // Keep previous data while fetching new data
+  });
 
   const handleRefetch = () => {
     queryClient.invalidateQueries('posts');
