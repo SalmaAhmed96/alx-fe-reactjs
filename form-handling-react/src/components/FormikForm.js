@@ -2,7 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-const FormikForm = () => {
+const formikForm = () => {
   const formik = useFormik({
     initialValues: {
       username: '',
