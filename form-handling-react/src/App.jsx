@@ -1,17 +1,15 @@
-import './App.css';
-import RegistrationForm from './components/RegistrationForm'; // Controlled component
-// or
-// import FormikForm from './components/FormikForm'; // Formik component
+import React from 'react';
+import RegistrationForm from './components/RegistrationForm';
+import FormikForm from './components/formikForm';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <h1>User Registration</h1>
-      
-      {/* You can choose which form to render here */}
+      <h2>Controlled Components</h2>
       <RegistrationForm />
-      {/* or */}
-      {/* <FormikForm /> */}
+      <h2>Formik Form</h2>
+      <FormikForm />
     </div>
   );
 }
