@@ -1,26 +1,28 @@
-import React from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
+import React from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 const FormikForm = () => {
   const formik = useFormik({
     initialValues: {
-      username: "",
-      email: "",
-      password: "",
+      username: '',
+      email: '',
+      password: ''
     },
     validationSchema: Yup.object({
-      username: Yup.string().required("Username is required"),
+      username: Yup.string()
+        .required('Username is required'),
       email: Yup.string()
-        .email("Invalid email address")
-        .required("Email is required"),
-      password: Yup.string().required("Password is required"),
+        .email('Invalid email address')
+        .required('Email is required'),
+      password: Yup.string()
+        .required('Password is required')
     }),
     onSubmit: (values) => {
       // Simulate API call
-      console.log("User registered:", values);
-      alert("User registered successfully!");
-    },
+      console.log('User registered:', values);
+      alert('User registered successfully!');
+    }
   });
 
   return (
@@ -35,7 +37,7 @@ const FormikForm = () => {
           onBlur={formik.handleBlur}
         />
         {formik.touched.username && formik.errors.username ? (
-          <div style={{ color: "red" }}>{formik.errors.username}</div>
+          <div style={{ color: 'red' }}>{formik.errors.username}</div>
         ) : null}
       </div>
       <div>
@@ -48,7 +50,7 @@ const FormikForm = () => {
           onBlur={formik.handleBlur}
         />
         {formik.touched.email && formik.errors.email ? (
-          <div style={{ color: "red" }}>{formik.errors.email}</div>
+          <div style={{ color: 'red' }}>{formik.errors.email}</div>
         ) : null}
       </div>
       <div>
@@ -61,7 +63,7 @@ const FormikForm = () => {
           onBlur={formik.handleBlur}
         />
         {formik.touched.password && formik.errors.password ? (
-          <div style={{ color: "red" }}>{formik.errors.password}</div>
+          <div style={{ color: 'red' }}>{formik.errors.password}</div>
         ) : null}
       </div>
       <button type="submit">Register</button>
