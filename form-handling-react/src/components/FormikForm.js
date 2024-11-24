@@ -19,7 +19,7 @@ const FormikForm = () => {
         .required('Password is required')
     }),
     onSubmit: (values) => {
-      // Simulate API call
+      
       console.log('User registered:', values);
       alert('User registered successfully!');
     }
@@ -71,4 +71,4 @@ const FormikForm = () => {
   );
 };
 
-export default FormikForm;
+export default formikForm;

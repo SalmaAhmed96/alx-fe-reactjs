@@ -23,11 +23,11 @@ const RegistrationForm = () => {
       return;
     }
 
-    // Simulate API call
+  
     console.log('User registered:', { username, email, password });
     alert('User registered successfully!');
     
-    // Clear form fields
+    
     setUsername('');
     setEmail('');
     setPassword('');
