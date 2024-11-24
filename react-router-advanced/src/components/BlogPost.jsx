@@ -7,7 +7,7 @@ const BlogPost = () => {
   return (
     <div>
       <h1>Blog Post {id}</h1>
-      {/* Fetch and display blog post content based on id */}
+      {}
     </div>
   );
 };
