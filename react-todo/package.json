@@ -3,9 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  
-
   "dependencies": {
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.25.9",
+    "jest-dom": "^4.0.0",
+    "jest-environment-jsdom": "^29.7.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -26,7 +28,8 @@
   },
   "scripts": {
     "test": "jest"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   }
 }
-
-
