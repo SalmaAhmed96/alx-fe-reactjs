@@ -23,7 +23,7 @@ const RegistrationForm = () => {
       return;
     }
 
-  
+    
     console.log('User registered:', { username, email, password });
     alert('User registered successfully!');
     
