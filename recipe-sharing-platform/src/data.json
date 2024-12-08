@@ -3,13 +3,17 @@
       "id": 1,
       "title": "Spaghetti Carbonara",
       "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-      "image": "https://via.placeholder.com/150"
+      "image": "https://via.placeholder.com/150",
+      "ingredients": ["200g spaghetti", "100g pancetta", "2 large eggs", "50g Pecorino cheese", "50g Parmesan cheese", "Freshly ground black pepper", "Salt"],
+      "instructions": ["Boil the pasta in salted water according to package instructions.", "Fry the pancetta until crispy.", "Beat the eggs in a bowl, then mix in the cheese and a good grinding of black pepper.", "Drain the pasta and immediately toss with the pancetta and egg mixture.", "Serve immediately, with extra cheese and black pepper on top."]
     },
     {
       "id": 2,
       "title": "Chicken Tikka Masala",
       "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-      "image": "https://via.placeholder.com/150"
+      "image": "https://via.placeholder.com/150",
+      "ingredients": ["500g chicken breast", "1 cup yogurt", "2 tbsp lemon juice", "2 tsp ground cumin", "2 tsp ground coriander", "1 tsp turmeric", "1 tsp paprika", "1 tsp cayenne pepper", "Salt", "Butter", "1 onion, chopped", "2 garlic cloves, minced", "1 tbsp ginger, minced", "1 can tomato puree", "1 cup heavy cream"],
+      "instructions": ["Marinate the chicken with yogurt, lemon juice, and spices for at least an hour.", "Grill the marinated chicken until cooked through.", "In a pan, melt butter and sauté onions until translucent.", "Add garlic and ginger, cook for a minute.", "Pour in the tomato puree and simmer for 10 minutes.", "Add cream and grilled chicken, cook for another 10 minutes.", "Serve with rice or naan."]
     }
   ]
   
