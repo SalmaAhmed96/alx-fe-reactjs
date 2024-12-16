@@ -22,9 +22,11 @@ const Search = () => {
           Authorization: `token ${import.meta.env.VITE_GITHUB_API_KEY}`,
         },
       });
-      setUsers(response.data.items);
+
       if (response.data.items.length === 0) {
         setError("Looks like we can't find the user");
+      } else {
+        setUsers(response.data.items);
       }
     } catch (err) {
       console.error('Error fetching user data:', err);
