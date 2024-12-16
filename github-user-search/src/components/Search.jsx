@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const Search = ({ onSearch }) => {
   const [username, setUsername] = useState('');
@@ -22,6 +23,10 @@ const Search = ({ onSearch }) => {
       </button>
     </form>
   );
+};
+
+Search.propTypes = {
+  onSearch: PropTypes.func.isRequired,
 };
 
 export default Search;

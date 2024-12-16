@@ -15,6 +15,7 @@ function App() {
       const userData = await fetchUserData(username);
       setUser(userData);
     } catch (err) {
+      console.error('Error fetching user data:', err); // Log the error
       setError("Looks like we can't find the user");
       setUser(null);
     }
