@@ -1,22 +1,21 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 import axios from 'axios';
 
 const Search = () => {
   const [username, setUsername] = useState('');
   const [location, setLocation] = useState('');
-  const [repos, setRepos] = useState('');
+  const [minRepos, setMinRepos] = useState('');
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const fetchUserData = async (searchParams) => {
+  const fetchUserData = async ({ username, location, minRepos }) => {
     setLoading(true);
     setError('');
     try {
-      let query = searchParams.username ? `user:${searchParams.username}` : '';
-      if (searchParams.location) query += ` location:${searchParams.location}`;
-      if (searchParams.repos) query += ` repos:>=${searchParams.repos}`;
+      let query = username ? `${username}` : '';
+      if (location) query += `+location:${location}`;
+      if (minRepos) query += `+repos:>=${minRepos}`;
 
       const response = await axios.get(`https://api.github.com/search/users?q=${query}`, {
         headers: {
@@ -24,9 +23,12 @@ const Search = () => {
         },
       });
       setUsers(response.data.items);
+      if (response.data.items.length === 0) {
+        setError("Looks like we can't find the user");
+      }
     } catch (err) {
       console.error('Error fetching user data:', err);
-      setError("Looks like we can't find any users matching your criteria");
+      setError("Looks like we can't find the user");
       setUsers([]);
     }
     setLoading(false);
@@ -34,7 +36,7 @@ const Search = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    fetchUserData({ username, location, repos });
+    fetchUserData({ username, location, minRepos });
   };
 
   return (
@@ -57,8 +59,8 @@ const Search = () => {
         <input
           type="number"
           placeholder="Minimum Repositories"
-          value={repos}
-          onChange={(e) => setRepos(e.target.value)}
+          value={minRepos}
+          onChange={(e) => setMinRepos(e.target.value)}
           className="border p-2 rounded-md w-full"
         />
         <button type="submit" className="bg-blue-500 text-white p-2 rounded-md mt-2 w-full">
@@ -82,10 +84,6 @@ const Search = () => {
       </div>
     </div>
   );
-};
-
-Search.propTypes = {
-  onSearch: PropTypes.func.isRequired,
 };
 
 export default Search;
