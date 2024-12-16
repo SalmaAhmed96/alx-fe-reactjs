@@ -24,13 +24,13 @@ const Search = () => {
       });
 
       if (response.data.items.length === 0) {
-        setError("Looks like we can't find the user");
+        setError("Looks like we cant find the user");
       } else {
         setUsers(response.data.items);
       }
     } catch (err) {
       console.error('Error fetching user data:', err);
-      setError("Looks like we can't find the user");
+      setError("Looks like we cant find the user");
       setUsers([]);
     }
     setLoading(false);
