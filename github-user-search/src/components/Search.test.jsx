@@ -6,9 +6,6 @@ import Search from './Search';
 // Mock axios
 const mock = new MockAdapter(axios);
 
-// Import Jest functions
-import { describe, beforeEach, test, expect } from '@jest/globals';
-
 describe('Search Component', () => {
   beforeEach(() => {
     mock.reset();
@@ -28,17 +25,12 @@ describe('Search Component', () => {
   });
 
   test('displays user information when users are found', async () => {
-    const userData = [
-      {
-        id: 1,
-        login: 'octocat',
-        avatar_url: 'https://github.com/images/error/octocat_happy.gif',
-        location: 'San Francisco',
-        public_repos: 2,
-        html_url: 'https://github.com/octocat',
-      },
-    ];
-    mock.onGet('https://api.github.com/search/users?q=octocat').reply(200, { items: userData });
+    const userData = {
+      login: 'octocat',
+      avatar_url: 'https://github.com/images/error/octocat_happy.gif',
+      html_url: 'https://github.com/octocat',
+    };
+    mock.onGet('https://api.github.com/users/octocat').reply(200, userData);
 
     render(<Search />);
 
@@ -47,8 +39,7 @@ describe('Search Component', () => {
 
     await waitFor(() => {
       expect(screen.getByText('octocat')).toBeInTheDocument();
-      expect(screen.getByText('San Francisco')).toBeInTheDocument();
-      expect(screen.getByText('Repositories: 2')).toBeInTheDocument();
+      expect(screen.getByText('View Profile')).toBeInTheDocument();
     });
   });
 });
